@@ -1,0 +1,34 @@
+.modalPageBox {
+  padding-top: 20px;
+  background-color: grey;
+  height: 240px;
+  border: 2px solid deepskyblue;
+  border-radius: 10px;
+}
+
+.myName {
+  font-style: italic;
+  font-size: 25px;
+  color: #ffc42c;
+  font-family: Calibri;
+}
+
+.modalPageText {
+  font-family: "Sitka Banner";
+  font-style: italic;
+  font-size: 20px;
+  color: #80dbfa;
+}
+.linkedInLink {
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+.buttonModalPage {
+  padding-left: 3px;
+}
+
+.box {
+  margin-right: 2px;
+  margin-left: 2px;
+}

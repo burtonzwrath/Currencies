@@ -1,0 +1,17 @@
+.currenciesTableContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+  border-radius: 4px;
+}
+.cell {
+  border: 2px solid;
+  width: 44px;
+}
+.cell:first-child {
+  width: 110px;
+}
+.cell:last-child {
+  width: 110px;
+}

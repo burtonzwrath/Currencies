@@ -1,0 +1,24 @@
+
+.cellTableItem {
+  border-right-style: solid;
+  border-right: 2px;
+  min-width: 67px;
+  font-size: 14px;
+}
+.itemTableRow {
+  display: Block;
+}
+.itemTableCellTicker {
+  min-width: 73px;
+}
+.buttonCurrenciesItem {
+  max-width: 10px;
+  color: cadetblue;
+}
+.tableGrey {
+  background: grey;
+}
+.tableBlue {
+  background: #d0edf5;
+}
+h{color:darkslategray}

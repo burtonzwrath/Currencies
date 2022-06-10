@@ -1,0 +1,29 @@
+.contentBox {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  height: 1000px;
+}
+
+.contentBox card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.selectsWrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.selectCurrenciesWrapper,
+.selectIntervalWrapper {
+  min-width: 130px;
+}
+.selects {
+  height: 50px;
+  background-color: powderblue;
+}
