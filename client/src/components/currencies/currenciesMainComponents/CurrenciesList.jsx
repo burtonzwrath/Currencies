@@ -18,10 +18,10 @@ export default function CurrenciesList({
 }) {
   const cells = document.querySelectorAll(`.cell`);
   cells.forEach((item, index, arr) => {
-    item.style.backgroundColor = switchColorsInvert();
-    item.style.backgroundColor = switchColorsInvert();
-    item.style.color = switchColors();
-    item.style.borderColor = switchColors();
+    item.style.backgroundColor = switchColorsInvert;
+    item.style.backgroundColor = switchColorsInvert;
+    item.style.color = switchColors;
+    item.style.borderColor = switchColors;
     item.style.fontSize = "18px";
   });
 
@@ -29,8 +29,8 @@ export default function CurrenciesList({
     <TableContainer
       className="currenciesTableContainer"
       sx={{
-        backgroundColor: switchColors(),
-        borderColor: switchColorsInvert(),
+        backgroundColor: switchColors,
+        borderColor: switchColorsInvert,
       }}
     >
       <Table>

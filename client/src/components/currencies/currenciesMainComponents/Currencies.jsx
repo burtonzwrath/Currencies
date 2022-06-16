@@ -3,7 +3,13 @@ import { io } from "socket.io-client";
 import CurrenciesList from "./CurrenciesList";
 import { Box, Card } from "@mui/material";
 import { get_cur_thunk } from "../../../store/actions/actions";
-import React, { useContext, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import CustomizedSwitches from "../../themSwitcher/Switcher";
 import "../../../styles/currenciesStyle/currencies.css";
@@ -14,23 +20,30 @@ import ModalPage from "../../modalPage/modalPage";
 
 const URL = "http://localhost:4000";
 
-console.log("client", "start");
 const socket = io(URL);
-socket.emit("start");
 
 export default function Currencies() {
   const [selectValue, setSelectValue] = useState("none");
-  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
-  const handleClick = () => {
-    toggleDarkMode();
-  };
 
-  function switchColors() {
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
+
+  let seconds;
+
+  const handleClick = useCallback(() => {
+    toggleDarkMode();
+  }, [toggleDarkMode]);
+
+  useEffect(() => {
+    socket.emit("start");
+  }, []);
+
+  const switchColors = useMemo(() => {
     return darkMode ? "#197791" : "white";
-  }
-  function switchColorsInvert() {
+  }, [darkMode]);
+
+  const switchColorsInvert = useMemo(() => {
     return darkMode ? "white" : "#197791";
-  }
+  }, [darkMode]);
 
   const dispatch = useDispatch();
   const arrOfCurrencies = useSelector((state) => state.currencies);
@@ -39,17 +52,20 @@ export default function Currencies() {
     dispatch(get_cur_thunk(resp));
   });
 
-  const setTimer = (e) => {
-    const seconds = parseInt(e) * 1000;
-    socket.emit("setTimer", seconds);
-  };
+  const setTimer = useCallback(
+    (e) => {
+      seconds = parseInt(e) * 1000;
+      socket.emit("setTimer", seconds);
+    },
+    [seconds]
+  );
 
   return (
-    <Box className="wrapperBox" sx={{ color: switchColorsInvert() }}>
+    <Box className="wrapperBox" sx={{ color: switchColorsInvert }}>
       <Box
         className="contentBox"
         sx={{
-          backgroundColor: switchColors(),
+          backgroundColor: switchColors,
         }}
       >
         <Box sx={{ alignSelf: "flex-start" }}>
@@ -58,8 +74,8 @@ export default function Currencies() {
         <Card
           className="contentBoxCard"
           sx={{
-            backgroundColor: switchColorsInvert(),
-            color: switchColors(),
+            backgroundColor: switchColorsInvert,
+            color: switchColors,
           }}
         >
           <CustomizedSwitches handleClick={handleClick} darkMode={darkMode} />

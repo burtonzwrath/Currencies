@@ -14,17 +14,17 @@ export default function ModalPage({ switchColorsInvert }) {
     },
   };
 
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
   return (
     <Box sx={{ padding: "20px 0 0 0" }}>
       <Button
-        sx={{ color: switchColorsInvert(), borderColor: switchColorsInvert() }}
+        sx={{ color: switchColorsInvert, borderColor: switchColorsInvert }}
         variant="outlined"
         onClick={openModal}
       >
